@@ -1,0 +1,9 @@
+{
+  "name": "<%= app %>",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "tsc; node .;"
+  }
+}
