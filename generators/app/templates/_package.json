@@ -4,6 +4,12 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "start": "tsc; node .;"
+    "prestart": "tsc",
+    "start": "node .;",
+    "postinstall": "typings install dt~node --global --save",
+    "typings":"typings"
+  },
+  "devDependencies": {
+    "typings": "^2.1.0"
   }
 }

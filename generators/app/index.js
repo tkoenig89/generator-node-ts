@@ -9,8 +9,6 @@ class SimpleGenerator extends Generator {
     }
 
     writing() {
-        this.log('write');
-
         //copy package.json
         this.fs.copyTpl(
             this.templatePath("_package.json"),
@@ -33,8 +31,16 @@ class SimpleGenerator extends Generator {
         //create main.ts
         this.fs.write(
             this.destinationPath("src/main.ts"),
-            `console.log("running ${this.options["appname"]}");`
+            `console.log("running \\"${this.options["appname"]}\\"");`
         )
+    }
+
+    install() {
+        //let npm handle the rest
+        this.installDependencies({
+            bower:false,
+            npm: true
+        });
     }
 };
 
