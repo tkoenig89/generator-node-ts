@@ -14,6 +14,10 @@
     "email": "tobiaskoenig1@gmail.com",
     "name": "Tobias Koenig"
   },
+  "repository": {
+    "url": "https://github.com/tkoenig89/generator-node-ts",
+    "type": "git"
+  },
   "license": "MIT",
   "dependencies": {
     "yeoman-generator": "^1.1.0"
