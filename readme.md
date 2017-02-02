@@ -15,4 +15,4 @@ root \\\
 |--------- main.ts\
 |--- package.json\
 |--- .gitignore\
-|--- tsconfig.json\
+|--- tsconfig.json
