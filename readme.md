@@ -12,11 +12,12 @@ You can also decide to use mocha and chai for testing, via a prompt.
 
 ### Project structure
 
-root \\\
-|--- src \\\
-|--------- main.module.ts\
-|---------(main.module.spec.ts)\
-|--- package.json\
-|--- .gitignore\
-|--- tsconfig.json
-|--- typings.json
+<ul>root \
+<li><ul>src \
+<li>main.module.ts</li>
+<li>(main.module.spec.ts)</li>
+</ul></li>
+<li>package.json</li>
+<li>.gitignore</li>
+<li>tsconfig.json</li>
+<li>typings.json</li>
