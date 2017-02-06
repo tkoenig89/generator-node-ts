@@ -7,6 +7,7 @@ You can choose to add mocha and chai for testing, via a prompt.
 
 If you have yeoman installed, simply call (if 'name' is not present, the working folders name will be used):
 ```bash
+npm install node-ts [-g]
 yo node-ts [name]
 ```
 
