@@ -12,7 +12,7 @@ class SimpleGenerator extends Generator {
         return this.prompt([{
             type: 'confirm',
             name: 'test',
-            message: 'Would you like to add testing with mocha and chai?',
+            message: 'Would you like to add mocha and chai (testing)?',
             default: false
         }]).then((answers) => {
             this.options["test"] = answers.test;
