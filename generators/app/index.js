@@ -5,7 +5,7 @@ class SimpleGenerator extends Generator {
         super(args, opts);
 
         //custom code
-        this.argument('appname', { type: String, default: this.appname.replace(" ", "-") });
+        this.argument('appname', { type: String, default: this.appname.replace(/\s/g, "-") });
     }
 
     prompting() {
