@@ -16,11 +16,23 @@ class SimpleGenerator extends Generator {
             default: false
         }]).then((answers) => {
             this.options["test"] = answers.test;
+
+            if (answers.test) {
+                return this.prompt([{
+                    type: 'confirm',
+                    name: 'testFolder',
+                    message: generateTestFolderPrompt(this.options["appname"]),
+                    default: false
+                }]).then((answers) => {
+                    this.options["testFolder"] = answers.testFolder;
+                });
+            }
         });
     }
 
     writing() {
         const useTests = this.options["test"];
+        const useTestFolder = useTests && this.options["testFolder"];
 
         //copy package.json
         this.fs.copyTpl(
@@ -28,14 +40,17 @@ class SimpleGenerator extends Generator {
             this.destinationPath("package.json"),
             {
                 app: this.options["appname"],
-                useTests: useTests
+                useTests: useTests,
+                npmTestPath: useTestFolder ? "dist/test/*.spec.js" : "dist/**/*.spec.js"
             }
         );
 
         //copy tsconfig.json
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath("_tsconfig.json"),
-            this.destinationPath("tsconfig.json")
+            this.destinationPath("tsconfig.json"), {
+                useTestFolder: useTestFolder
+            }
         );
 
         //copy .gitignore
@@ -63,11 +78,15 @@ class SimpleGenerator extends Generator {
         );
 
         if (useTests) {
+            var testPath = useTestFolder ? "test/" : "src/";
             //copy main.module.spec.ts template
             this.fs.copyTpl(
                 this.templatePath("_main.module.spec.ts"),
-                this.destinationPath("src/main.module.spec.ts"),
-                { app: this.options["appname"] }
+                this.destinationPath(testPath + "main.module.spec.ts"),
+                {
+                    app: this.options["appname"],
+                    srcFolder: useTestFolder ? "../src" : "."
+                }
             );
         }
     }
@@ -79,6 +98,13 @@ class SimpleGenerator extends Generator {
             npm: true
         });
     }
+
 };
+
+function generateTestFolderPrompt(rootFolderName) {
+    return 'Should tests be stored in a separate folder, instead of next to the source files?\n' +
+        "-yes:\n " + rootFolderName + "/\n   src/\n     .ts\n   test/\n     .spec.ts\n" +
+        "-no:\n " + rootFolderName + "/\n   src/\n     .ts\n     .spec.ts\n";
+}
 
 module.exports = SimpleGenerator;

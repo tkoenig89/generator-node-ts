@@ -12,8 +12,26 @@ yo node-ts [name]
 ```
 
 You will then be asked, if you like to add testing capabilities to your project (default is *false*):
-```bash
+```
 Would you like to add mocha and chai (testing)? (y/N)
+```
+
+If you chose to add testing, you are then able to choose if you prefer to have your specs in a separate 'test' folder (next to the 'src' folder) or having the specs next to the source files in the 'src' folder.
+
+```
+Should tests be stored in a separate folder, instead of next to the source files?
+-yes:
+ <your-app>/
+   src/
+     .ts
+   test/
+     .spec.ts
+-no:
+ <your-app>/
+   src/
+     .ts
+     .spec.ts
+ (y/N)
 ```
 
 ## npm scripts

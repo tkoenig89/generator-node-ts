@@ -1,9 +1,9 @@
 import * as chai from 'chai';
-import { add } from "./main.module";
+import { add } from "<%= srcFolder %>/main.module";
 
 const expect = chai.expect;
 
-describe("<%=app%> test", function () {
+describe("<%=app%>", function () {
     it("adding 2 + 2", function () {
         expect(add(2, 2)).to.equal(4);
     });

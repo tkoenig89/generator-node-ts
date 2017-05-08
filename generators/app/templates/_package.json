@@ -8,7 +8,7 @@
     "start": "node .",
     "postinstall": "typings install"<%if(useTests){%>,      
     "pretest": "tsc",
-    "test": "mocha dist/**/*.spec.js"<%}%>
+    "test": "mocha <%= npmTestPath %>"<%}%>
   },
   "devDependencies": {<%if(useTests){%>
     "chai": "^3.5.0",
