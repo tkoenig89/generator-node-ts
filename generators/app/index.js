@@ -41,6 +41,7 @@ class SimpleGenerator extends Generator {
             {
                 app: this.options["appname"],
                 useTests: useTests,
+                npmSrcPath: useTestFolder ? "dist/src/" : "dist/",
                 npmTestPath: useTestFolder ? "dist/test/*.spec.js" : "dist/**/*.spec.js"
             }
         );
