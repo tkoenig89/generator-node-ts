@@ -1,6 +1,6 @@
 {
   "name": "generator-node-ts",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "scaffolds a basic node project with typescript.",
   "files": [
     "generators"
