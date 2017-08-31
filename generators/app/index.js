@@ -60,15 +60,6 @@ class SimpleGenerator extends Generator {
             this.destinationPath(".gitignore")
         );
 
-        //copy typings.json
-        this.fs.copyTpl(
-            this.templatePath("_typings.json"),
-            this.destinationPath("typings.json"),
-            {
-                useTests: useTests
-            }
-        );
-
         //copy main.module.ts template
         this.fs.copyTpl(
             this.templatePath("_main.module.ts"),
