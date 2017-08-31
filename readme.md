@@ -56,4 +56,3 @@ npm test
 <li>package.json</li>
 <li>.gitignore</li>
 <li>tsconfig.json</li>
-<li>typings.json</li>
